@@ -31,7 +31,7 @@
             const searchInput = document.getElementById('search-input');
             let gameData = [];
 
-            fetch('/games.json')
+            fetch('./games.json')
                 .then(response => response.json())
                 .then(data => {
                     gameData = data.gameButtons;
