@@ -176,12 +176,12 @@ body {
 
 @keyframes color {
     0%{
-        background-position: 0% 90%;
+        background-position: 0% 85%;
     }
     50% {
-        background-position: 0% 75%;
+        background-position: 0% 70%;
     }
     100% {
-        background-position: 0% 90%;
+        background-position: 0% 85%;
     }
 }
