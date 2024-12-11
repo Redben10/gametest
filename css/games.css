@@ -140,34 +140,41 @@ body {
     font-size: 1em; 
 }
 
-.image-container:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+.search-input:hover {
+    background-color: #555;
 }
+
 
 .search-bar {
-    margin: 25px auto; 
-    text-align: center; 
-    color: white;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+    width: 300px;
 }
 
+
 .search-input {
-    padding: 25px;
-    width: 400px;
+    padding: 10px 15px;
+    width: 300px;
     border: none;
     border-radius: 20px;
     outline: none;
     font-size: 1em;
     color: white;
-    transition: background-color 0.3s;
     background-color: #444;
-    color: white;
+    transition: all 0.3s ease;
 }
 
+
 .search-input:focus {
-    background-color: #444;
-    color: white;
+    background-color: #666;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
 @keyframes color {
     0%{
         background-position: 0% 100%;
