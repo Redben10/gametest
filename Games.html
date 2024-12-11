@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Void's Games</title>
-    <script src="js/app.js" defer></script>
-    <script src="particles.js"></script>
-    <link rel="stylesheet" href="css/games.css">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Void's Games</title>
     <link rel="stylesheet" href="css/games.css">
 </head>
-<script src="js/about.js"></script>
 <body>
     <div class="topbar">
         <h1>Void's Games</h1>
@@ -54,7 +46,7 @@
             });
 
             function renderGames(games) {
-                container.innerHTML = ''; // Clear previous games
+                container.innerHTML = ''; 
                 games.forEach(game => {
                     const gameButton = document.createElement('a');
                     gameButton.className = 'game-button';

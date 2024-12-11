@@ -61,6 +61,9 @@ body {
     transition: background 0.3s, transform 0.2s;
     margin-top: 20px;
 }
+.play-button:hover {
+    transform: translateY(-10px); 
+}
 
 .nav-button, .nav-button2 {
     background-color: #262626;
