@@ -25,6 +25,7 @@ body {
     font-size: 1em;
     width: 100%;
     text-align: center;
+    top: 30px;
     border-bottom: 4px solid #444;
     position: fixed;
     top: 0;
