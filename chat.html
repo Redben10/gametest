@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/app.js" defer></script>
+    <script src="js/tunnel_lib.js" defer></script>
+    <script src="particles.js"></script>
+    <title>Chat Room</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #charCount {
+            margin-left: 10px;
+            font-size: 1em;
+            color: #FFFFFF;
+        }
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .topbar {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .topbar h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #f5f5f5;
+        }
+        .nav-buttons {
+            margin-top: 10px;
+        }
+        .nav-button, .nav-button2 {
+            text-decoration: none;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .nav-button:hover, .nav-button2:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+        .nav-button2 {
+            background-color: #666;
+        }
+        #chatContainer {
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(34, 34, 34, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        #roomInfo {
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        #messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            background-color: #222;
+            border-radius: 5px;
+            white-space: normal; 
+        }
+        #inputContainer {
+            display: flex;
+        }
+        #messageInput {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #f5f5f5;
+        }
+        #sendButton, #createButton, #joinButton, #setUsernameButton {
+            padding: 10px;
+            margin-left: 5px;
+            cursor: pointer;
+            background-color: #555;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        #sendButton:hover, #createButton:hover, #joinButton:hover, #setUsernameButton:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="topbar">
+        <h1>Chat Room</h1>
+        <div class="nav-buttons">
+            <a href="./" class="nav-button">Home</a>
+            <a href="./Games.html" class="nav-button">Games</a>
+            <a href="./About.html" class="nav-button">About</a>
+            <a href="./chat.html" class="nav-button2">Chat Room</a>
+        </div>
+    </div>
+    <div id="chatContainer">
+        <div id="roomInfo">Connected to room: <strong>global</strong></div>
+        <div id="messages"></div>
+        <div id="inputContainer">
+            <input type="text" id="messageInput" placeholder="Type a message..." maxlength="200">
+            <button id="sendButton" onclick="sendMessage()">Send <span id="charCount">0 / 200</span></button>
+        </div>
+        <div style="margin-top: 10px;">
+            <button id="createButton" onclick="createOrJoinRoom()">Create or Join a Room</button>
+            <button id="setUsernameButton" onclick="setUserName()">Set Username</button>
+        </div>
+    </div>
+    <script>
+        async function createOrJoinRoom() {
+            let room = prompt("Enter the name of the room you want to join or create, leave it blank to randomize:");
+            window.chatConnection.close();
+            if (room) {
+                window.chatConnection = getTunnelConnection(room);
+            } else window.chatConnection = getTunnelConnection('');
+            await window.chatConnection.init();
+            await window.chatConnection.create();
+            await window.chatConnection.connect();
+            room = window.chatConnection.tunnelId;
+            document.getElementById('roomInfo').innerText = `Connected to room: ${window.chatConnection.tunnelId}`;
+            localMessage('System:', `${window.userName} connected to room ${room}. ---`, true);
+        }
+
+        function getTunnelConnection(id) {
+            return new TunnelConnection(
+                'https://lluck.hackclub.app',
+                id,
+                "main",
+                processMessage,
+                { encryption: false, compression: false }
+            )
+        }
+
+        function localMessage(username, message, isSystem) {
+            if (!isSystem) isSystem = false;
+            let messagesContainer = document.getElementById('messages');
+            let messageElement = document.createElement('div');
+            messageElement.innerText = `${username}: ${message}`;
+            document.getElementById('charCount').textContent = `0 / 200`;
+            if (isSystem) messageElement.style.color = '#f00';
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function processMessage(message) {
+            try {
+                let messageData = JSON.parse(message);
+                if (!messageData.username || !messageData.message) throw new Error('Invalid message data: ' + message);
+                localMessage(messageData.username, messageData.message);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        function sendMessage() {
+            let userMessage = document.getElementById('messageInput').value;
+            let messageData = {
+                username: window.userName,
+                message: userMessage
+            };
+            window.chatConnection.send(JSON.stringify(messageData));
+            document.getElementById('messageInput').value = '';
+        }
+
+        function setUserName() {
+            let username = prompt('Enter your username:');
+            if (username) {
+                window.userName = username;
+                localStorage['userName'] = username;
+            } else {
+                setUserName();
+            }
+        }
+
+        async function checkAndReconnect() {
+            if (!window.chatConnection.isConnected()) {
+                console.log("Connection lost. Attempting to reconnect...");
+                await window.chatConnection.init();
+                await window.chatConnection.create();
+                await window.chatConnection.connect();
+                console.log("Reconnected successfully.");
+                localMessage('System:', 'Reconnected to the chat room.', true);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userName = localStorage['userName'] || null;
+            if (!window.userName) setUserName();
+            window.chatConnection = getTunnelConnection('global');
+            window.chatConnection.init();
+            window.chatConnection.create();
+            window.chatConnection.connect();
+
+            setInterval(checkAndReconnect, 10000);
+
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+    <script>
+        const input = document.getElementById('messageInput');
+        const charCount = document.getElementById('charCount');
+        const maxLength = input.getAttribute('maxlength');
+        input.addEventListener('input', function() {
+            const currentLength = this.value.length;
+            charCount.textContent = `${currentLength} / ${maxLength}`;
+        });
+    </script>
+</body>
+</html>

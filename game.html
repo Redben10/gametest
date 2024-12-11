@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void's Games</title>
+    <script src="js/app.js" defer></script>
+    <script src="particles.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            pointer-events: none
+        }
+        
+        .topbar {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #f5f5f5;
+        }
+
+        .nav-buttons {
+            margin-top: 10px;
+        }
+
+        .nav-button {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .iframe-container {
+            width: 80%;  
+            height: 70vh;
+            position: relative;
+            background: linear-gradient(135deg, rgba(66, 245, 236, 0.3), rgba(255, 255, 255, 0.1));
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(66, 245, 236, 0.2);
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px rgba(66, 245, 236, 0.5), 0 0 30px rgba(66, 245, 236, 0.5);
+            animation: glowing-border 3s infinite alternate;
+        }
+
+        @keyframes glowing-border {
+            0% {
+                box-shadow: 0 0 20px rgba(66, 245, 236, 0.7), 0 0 40px rgba(66, 245, 236, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 60px rgba(66, 245, 236, 1), 0 0 80px rgba(66, 245, 236, 0.8);
+            }
+        }
+
+
+        .fullscreen-button {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 50px; /* Square size */
+            height: 50px;
+            background-image: url('./img/fullscreen.png');
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(66, 245, 236, 0.3);
+            border-radius: 5px; /* Square shape with slightly rounded corners */
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .fullscreen-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(66, 245, 236, 0.6);
+        }
+
+        .picture_in_picture-button {
+            position: absolute;
+            left: 10px;
+            bottom: 15px;
+            right: 15px;
+            width: 50px; /* Square size */
+            height: 50px;
+            background-image: url('./img/picture_in_picture.png');
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(66, 245, 236, 0.3);
+            border-radius: 5px; /* Square shape with slightly rounded corners */
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .picture_in_picture-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(66, 245, 236, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <h1>Void's Games</h1>
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-button">Home</a>
+            <a href="games.html" class="nav-button">Games</a>
+            <a href="about.html" class="nav-button">About</a>
+            <a href="./chat.html" class="nav-button">Chat Room</a>
+        </div>
+    </div>
+    <div id="particles-js"></div> <!-- Particles.js container -->
+    <div class="content">
+        <div class="iframe-container" id="iframe-container">
+            <iframe id="gameIframe" src="" frameborder="0"></iframe>
+            <button class="fullscreen-button" onclick="toggleFullscreen()"></button>
+            <button class="picture_in_picture-button" onclick="openPictureInPicture()"></button>
+        </div>
+    </div>
+
+    <script>
+        async function fetchGames() {
+            const response = await fetch('/games.json');
+            return await response.json();
+        }
+
+        function getGameFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('game');
+        }
+
+        async function setIframeSource() {
+            const game = getGameFromURL();
+            const gamesData = await fetchGames();
+            const gameEntry = gamesData.gameButtons.find(g => g.text === game);
+            const iframe = document.getElementById('gameIframe');
+            iframe.src = gameEntry ? gameEntry.link2 : '';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setIframeSource();
+        });
+
+        function toggleFullscreen() {
+            const iframe = document.getElementById('gameIframe');
+            if (iframe.requestFullscreen) {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen(); 
+                } else {
+                    iframe.requestFullscreen(); 
+                }
+            } else if (iframe.webkitRequestFullscreen) { 
+                if (document.webkitFullscreenElement) {
+                    document.webkitExitFullscreen();
+                } else {
+                    iframe.webkitRequestFullscreen();
+                }
+            } else if (iframe.msRequestFullscreen) { 
+                if (document.msFullscreenElement) {
+                    document.msExitFullscreen();
+                } else {
+                    iframe.msRequestFullscreen();
+                }
+            }
+        }
+
+        async function openPictureInPicture() {
+            let iframe = document.getElementById('gameIframe');
+            const pipWindow = await documentPictureInPicture.requestWindow();
+            pipWindow.addEventListener('pagehide', () => {
+                document.getElementById('iframe-container').appendChild(iframe);
+            });
+
+            let iframeStyle = document.createElement('style');
+            iframeStyle.innerHTML = `
+            iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    display: block;
+                    z-index: 1000;
+                    right: 0;
+                }
+            `;
+            
+            const newIframe = iframe.cloneNode(true);
+
+            pipWindow.document.head.appendChild(iframeStyle);
+            pipWindow.document.body.appendChild(newIframe);
+            iframe.remove();
+        }
+    </script>
+</script>
+</body>
+</html>

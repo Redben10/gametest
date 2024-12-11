@@ -1,0 +1,430 @@
+{
+  "gameButtons": [
+    {
+      "text": "1on1soccer",
+      "link": "game.html?game=1on1soccer",
+      "link2": "Games/1on1soccer.html",
+      "image": "./Games/1on1soccer/logo.jpg"
+    },
+    {
+      "text": "Burrito Bison",
+      "link": "Games/BurritoBison.html",
+      "link2": "Games/BurritoBison.html",
+      "image": "./img/burrito-bison-image.png"
+    },
+    {
+      "text": "Subway Surfers",
+      "link": "game.html?game=Subway%20Surfers",
+      "link2": "Games/sub.html",
+      "image": "./img/subwaysurfers.png"
+    },
+    {
+      "text": "Rooftop Snipers",
+      "link": "game.html?game=Rooftop%20Snipers",
+      "link2": "Games/rooftop-snipers",
+      "image": "/img/roof.jpeg"
+    },
+    {
+      "text": "Getaway Shootout",
+      "link": "game.html?game=Getaway%20Shootout",
+      "link2": "Games/getawayshooter",
+      "image": "Games/getawayshooter/Untitled.jpeg"
+    },
+    {
+      "text": "Minecraft",
+      "link": "Games/eagle",
+      "link2": "Games/eagle",
+      "image": "/img/minecraft.png"
+    },
+    {
+      "text": "idle breakout",
+      "link": "game.html?game=idle%20breakout",
+      "link2": "Games/idle-breakout",
+      "image": "/img/idle.png"
+    },
+    {
+      "text": "Bit planes",
+      "link": "game.html?game=Bit%20planes",
+      "link2": "Games/planes.html",
+      "image": "/img/plane.jpg"
+    },
+    {
+      "text": "Basketball Stars",
+      "link": "game.html?game=Basketball%20Stars",
+      "link2": "Games/basketball-stars.html",
+      "image": "/img/BAS.webp"
+    },
+    {
+      "text": "Baldis Basics",
+      "link": "game.html?game=Baldis%20Basics",
+      "link2": "Games/basic.html",
+      "image": "Games/basic/splash.png"
+    },
+    {
+      "text": "Bad Piggies",
+      "link": "game.html?game=Bad%20Piggies",
+      "link2": "Games/badpiggies.html",
+      "image": "Games/badpiggies/badpiggies.png"
+    },
+    {
+      "text": "Tetris",
+      "link": "game.html?game=Tetris",
+      "link2": "Games/Tetris/index.html",
+      "image": "img/tetris.png"
+    },
+    {
+      "text": "Cookie Clicker",
+      "link": "Games/cookies.html",
+      "link2": "Games/cookies.html",
+      "image": "img/cookie.jpeg"
+    },
+    {
+      "text": "Bit Life",
+      "link": "game.html?game=Bit%20Life",
+      "link2": "Games/bitlife.html",
+      "image": "./Games/bitlife/logo.png"
+    },
+    {
+      "text": "Monkey Mart",
+      "link": "game.html?game=Monkey%20Mart",
+      "link2": "Games/monkey.html",
+      "image": "./img/monkey.jpeg"
+    },
+    {
+      "text": "Paper.io 2",
+      "link": "game.html?game=Paper.io%202",
+      "link2": "Games/paperio2.html",
+      "image": "./Games/paperio2/images/icon192.png"
+    },
+    {
+      "text": "Funny Shooter",
+      "link": "game.html?game=Funny%20Shooter",
+      "link2": "Games/funnyshooter.html",
+      "image": "Games/funnyshooter/icon.jpeg"
+    },
+    {
+      "text": "Funny Shooter 2",
+      "link": "game.html?game=Funny%20Shooter%202",
+      "link2": "Games/funnyshooter2.html",
+      "image": "Games/funnyshooter2/894abba63a6b23fed823f404831f444f.jpeg"
+    },
+    {
+      "text": "Adventure Capitalist",
+      "link": "game.html?game=Adventure%20Capitalist",
+      "link2": "Games/adventure.html",
+      "image": "img/adventure.jpeg"
+    },
+    {
+      "text": "Impossible Quiz",
+      "link": "game.html?game=Impossible%20Quiz",
+      "link2": "Games/impossiblequiz.html",
+      "image": "./img/impossiblequiz.webp"
+    },
+    {
+      "text": "Jetpack Joyride",
+      "link": "game.html?game=Jetpack%20Joyride",
+      "link2": "Games/jetpack-joyride.html",
+      "image": "./img/jetpack-joyride.webp"
+    },
+    {
+      "text": "Learn to Fly",
+      "link": "game.html?game=Learn%20to%20Fly",
+      "link2": "Games/LearnToFly.html",
+      "image": "./img/learntofly.webp"
+    },
+    {
+      "text": "Learn to Fly 2",
+      "link": "game.html?game=Learn%20to%20Fly%202",
+      "link2": "Games/LearnToFly2.html",
+      "image": "./img/learntofly2.webp"
+    },
+    {
+      "text": "2drocketleague",
+      "link": "game.html?game=2drocketleague",
+      "link2": "Games/2drocketleague.html",
+      "image": "Games/2drocketleague/unnamed.png"
+    },
+    {
+      "text": "Moto X3M",
+      "link": "game.html?game=Moto%20X3M",
+      "link2": "Games/MotoX3M.html",
+      "image": "./img/motox3m.webp"
+    },
+    {
+      "text": "Moto X3M Pool",
+      "link": "game.html?game=Moto%20X3M%20Pool",
+      "link2": "Games/motoxpool.html",
+      "image": "./img/motoxpool.webp"
+    },
+    {
+      "text": "Moto X3M Spooky",
+      "link": "game.html?game=Moto%20X3M%20Spooky",
+      "link2": "Games/moto-spook.html",
+      "image": "./img/moto-spook.webp"
+    },
+    {
+      "text": "Moto X3M Winter",
+      "link": "game.html?game=Moto%20X3M%20Winter",
+      "link2": "Games/motox3mw.html",
+      "image": "./img/motox3mw.webp"
+    },
+    {
+      "text": "Clicker Heroes",
+      "link": "game.html?game=Clicker%20Heroes",
+      "link2": "Games/clickerheroes.html",
+      "image": "Games/clickerheroes/clicker-heroes.png"
+    },
+    {
+      "text": "Riddle School",
+      "link": "game.html?game=Riddle%20School",
+      "link2": "Games/riddleschool.html",
+      "image": "./img/riddleschool.webp"
+    },
+    {
+      "text": "Riddle School 2",
+      "link": "game.html?game=Riddle%20School%202",
+      "link2": "Games/riddleschool2.html",
+      "image": "./img/riddleschool.webp"
+    },
+    {
+      "text": "Riddle School 3",
+      "link": "game.html?game=Riddle%20School%203",
+      "link2": "Games/riddleschool3.html",
+      "image": "./img/riddleschool.webp"
+    },
+    {
+      "text": "Riddle School 4",
+      "link": "game.html?game=Riddle%20School%204",
+      "link2": "Games/riddleschool4.html",
+      "image": "./img/riddleschool.webp"
+    },
+    {
+      "text": "Riddle School 5",
+      "link": "game.html?game=Riddle%20School%205",
+      "link2": "Games/riddleschool5.html",
+      "image": "./img/riddleschool.webp"
+    },
+    {
+      "text": "Slope",
+      "link": "game.html?game=Slope",
+      "link2": "Games/Slope.html",
+      "image": "./img/slope.webp"
+    },
+    {
+      "text": "Snowrider 3D",
+      "link": "game.html?game=Snowrider%203D",
+      "link2": "Games/snowride.html",
+      "image": "./img/snowride.webp"
+    },
+    {
+      "text": "Stack Ball",
+      "link": "game.html?game=Stack%20Ball",
+      "link2": "Games/stack-ball.html",
+      "image": "./img/stack-ball.webp"
+    },
+    {
+      "text": "Stick Slasher",
+      "link": "game.html?game=Stick%20Slasher",
+      "link2": "Games/StickSlasher.html",
+      "image": "./img/stickslasher.webp"
+    },
+    {
+      "text": "Temple Run 2",
+      "link": "game.html?game=Temple%20Run%202",
+      "link2": "Games/temple2.html",
+      "image": "./img/temple-run.webp"
+    },
+    {
+      "text": "Tiny Fishing",
+      "link": "game.html?game=Tiny%20Fishing",
+      "link2": "Games/tiny-fishing.html",
+      "image": "./img/tiny-fishing.webp"
+    },
+    {
+      "text": "Toss the Turtle",
+      "link": "game.html?game=Toss%20the%20Turtle",
+      "link2": "Games/tosstheturtle.html",
+      "image": "./img/tosstheturtle.webp"
+    },
+    {
+      "text": "Vex 3",
+      "link": "game.html?game=Vex%203",
+      "link2": "Games/Vex3.html",
+      "image": "./img/vex3.webp"
+    },
+    {
+      "text": "Vex 4",
+      "link": "game.html?game=Vex%204",
+      "link2": "Games/Vex4.html",
+      "image": "./img/vex4.webp"
+    },
+    {
+      "text": "Vex 5",
+      "link": "game.html?game=Vex%205",
+      "link2": "Games/Vex5.html",
+      "image": "./img/vex5.webp"
+    },
+    {
+      "text": "Vex 6",
+      "link": "game.html?game=Vex%206",
+      "link2": "Games/Vex6.html",
+      "image": "./img/vex6.webp"
+    },
+    {
+      "text": "Vex 7",
+      "link": "game.html?game=Vex%207",
+      "link2": "Games/Vex7.html",
+      "image": "./img/vex7.webp"
+    },
+    {
+      "text": "Cut the Rope",
+      "link": "game.html?game=Cut%20the%20Rope",
+      "link2": "Games/cuttherope.html",
+      "image": "Games/cuttherope/icon.png"
+    },
+    {
+      "text": "Crossy Road",
+      "link": "game.html?game=Crossy%20Road",
+      "link2": "Games/crossyroad.html",
+      "image": "Games/crossyroad/crossyroad.png"
+    },
+    {
+      "text": "Super Mario 64",
+      "link": "game.html?game=Super%20Mario%2064",
+      "link2": "Games/supermario64.html",
+      "image": "Games/supermario64/icon.png"
+    },
+    {
+      "text": "Run",
+      "link": "game.html?game=Run",
+      "link2": "Games/run.html",
+      "image": "Games/run/icon.jpeg"
+    },
+    {
+      "text": "Little Alchemy",
+      "link": "game.html?game=Little%20Alchemy",
+      "link2": "Games/littlealchemy.html",
+      "image": "Games/littlealchemy/images/192-alpha.png"
+    },
+    {
+      "text": "Stick Man",
+      "link": "game.html?game=Stick%20Man",
+      "link2": "Games/stickman.html",
+      "image": "Games/stickman/icon.jpg"
+    },
+    {
+      "text": "Fruit Ninja",
+      "link": "game.html?game=Fruit%20Ninja",
+      "link2": "Games/fruitninja.html",
+      "image": "Games/fruitninja/FruitNinjaTeaser.jpg"
+    },
+    {
+      "text": "Duck Life 1",
+      "link": "game.html?game=Duck%20Life%201",
+      "link2": "Games/ducklife1.html",
+      "image": "Games/ducklife1/icon.png"
+    },
+    {
+      "text": "Duck Life 2",
+      "link": "game.html?game=Duck%20Life%202",
+      "link2": "Games/ducklife2.html",
+      "image": "Games/ducklife2/ducklife2.png"
+    },
+    {
+      "text": "Duck Life 3",
+      "link": "game.html?game=Duck%20Life%203",
+      "link2": "Games/ducklife3.html",
+      "image": "Games/ducklife3/ducklife3.png"
+    },
+    {
+      "text": "Duck Life 4",
+      "link": "game.html?game=Duck%20Life%204",
+      "link2": "Games/ducklife4.html",
+      "image": "Games/ducklife4/ducklife4.png"
+    },
+    {
+      "text": "Duck Life 5",
+      "link": "game.html?game=Duck%20Life%205",
+      "link2": "Games/ducklife5.html",
+      "image": "Games/ducklife5/ducklife5.png"
+    },
+    {
+      "text": "Duck Life 6",
+      "link": "game.html?game=Duck%20Life%206",
+      "link2": "Games/ducklife6.html",
+      "image": "Games/ducklife6/ducklife6.png"
+    },
+    {
+      "text": "Drive Mad",
+      "link": "game.html?game=Drive%20Mad",
+      "link2": "Games/drivem",
+      "image": "img/drivem.jpeg"
+    },
+    {
+      "text": "Monster Tracks",
+      "link": "game.html?game=Monster%20Tracks",
+      "link2": "Games/monstert",
+      "image": "img/monstert.jpeg"
+    },
+    {
+      "text": "FNAF",
+      "link": "game.html?game=FNAF",
+      "link2": "Games/fnaf",
+      "image": "Games/fnaf/splash.jpg"
+    },
+    {
+      "text": "FNAF 2",
+      "link": "game.html?game=FNAF%202",
+      "link2": "Games/fnaf2",
+      "image": "Games/fnaf2/project/splash.webp"
+    },
+    {
+      "text": "FNAF 3",
+      "link": "game.html?game=FNAF%203",
+      "link2": "Games/fnaf3",
+      "image": "Games/fnaf3/project/splash.webp"
+    },
+    {
+      "text": "FNAF 4",
+      "link": "game.html?game=FNAF%204",
+      "link2": "Games/fnaf4",
+      "image": "Games/fnaf4/project/splash.webp"
+    },
+    {
+      "text": "Fireboy and Watergirl",
+      "link": "game.html?game=Fireboy%20and%20Watergirl",
+      "link2": "Games/fireboywatergirl",
+      "image": "Games/fireboywatergirl/icon.png"
+    },
+    {
+      "text": "Fireboy and Watergirl 2",
+      "link": "game.html?game=Fireboy%20and%20Watergirl%202",
+      "link2": "Games/fireboywatergirl2",
+      "image": "Games/fireboywatergirl2/Untitled.jpeg"
+    },
+    {
+      "text": "Fireboy and Watergirl 3",
+      "link": "game.html?game=Fireboy%20and%20Watergirl%203",
+      "link2": "Games/fireboywatergirl3",
+      "image": "Games/fireboywatergirl3/icon.png"
+    },
+    {
+      "text": "Fireboy and Watergirl 4",
+      "link": "game.html?game=Fireboy%20and%20Watergirl%204",
+      "link2": "Games/fireboywatergirl4",
+      "image": "Games/fireboywatergirl4/300.jpg"
+    },
+    {
+      "text": "Worlds Hardest Game",
+      "link": "game.html?game=Worlds%20Hardest%20Game",
+      "link2": "Games/worlds-hardest-game.html",
+      "image": "img/worlds-hardest-game.webp"
+    },
+    {
+      "text": "Worlds Hardest Game 2",
+      "link": "game.html?game=Worlds%20Hardest%20Game%202",
+      "link2": "Games/worlds-hardest-game2.html",
+      "image": "img/worlds-hardest-game.webp"
+    }
+  ]
+}

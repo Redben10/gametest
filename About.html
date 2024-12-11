@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Void's Games</title>
+    <script src="js/app.js" defer></script>
+    <script src="particles.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; 
+            pointer-events: none
+        }
+
+        .topbar {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #f5f5f5;
+        }
+
+        .nav-buttons {
+            margin-top: 10px;
+        }
+
+        .nav-button, .nav-button2 {
+            text-decoration: none;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .nav-button:hover, .nav-button2:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .nav-button2 {
+            background-color: #666;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .email-link {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <script src="js/check.js"></script>
+    <div class="topbar">
+        <h1>About Void's Games</h1>
+        <div class="nav-buttons">
+            <a href="./" class="nav-button">Home</a>
+            <a href="./Games.html" class="nav-button">Games</a>
+            <a href="./About.html" class="nav-button2">About</a>
+            <a href="./chat.html" class="nav-button">Chat Room</a>
+        </div>
+    </div>
+        <div id="particles-js"></div> <!-- Particles.js container -->
+    <div class="content">
+        <p>Hey, this is a passion project I hope you enjoy.</p>
+        <p>Send feedback, ideas, game requests, and bugs to the devs on Discord here: "@redben1002" and "@execur539"</p>
+    </div>
+</body>
+</html>

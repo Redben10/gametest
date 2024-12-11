@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void's Games</title>
+    <script src="js/app.js" defer></script>
+    <script src="particles.js"></script>
+    <link rel="stylesheet" href="css/games.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void's Games</title>
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<script src="js/about.js"></script>
+<body>
+    <div class="topbar">
+        <h1>Void's Games</h1>
+        <div class="nav-buttons">
+            <a href="./" class="nav-button2">Home</a>
+            <a href="./Games.html" class="nav-button">Games</a>
+            <a href="./About.html" class="nav-button">About</a>
+            <a href="./chat.html" class="nav-button">Chat Room</a>
+            <button class="nav-button" id="redirectButton">about blank</button>
+        </div>
+    </div>
+    
+    <div class="search-bar">
+        <input type="text" id="search-input" class="search-input" placeholder="Search games...">
+    </div>
+
+    <div class="content" id="game-buttons-container">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('game-buttons-container');
+            const searchInput = document.getElementById('search-input');
+            let gameData = [];
+
+            fetch('/games.json')
+                .then(response => response.json())
+                .then(data => {
+                    gameData = data.gameButtons;
+                    renderGames(gameData);
+                })
+                .catch(error => console.error('Error loading game buttons:', error));
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const filteredGames = gameData.filter(game => game.text.toLowerCase().includes(searchTerm));
+                renderGames(filteredGames);
+            });
+
+            function renderGames(games) {
+                container.innerHTML = ''; // Clear previous games
+                games.forEach(game => {
+                    const gameButton = document.createElement('a');
+                    gameButton.className = 'game-button';
+                    gameButton.href = game.link;
+
+                    const imageContainer = document.createElement('div');
+                    imageContainer.className = 'image-container';
+
+                    const img = document.createElement('img');
+                    img.src = game.image;
+                    img.alt = game.text;
+
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'tooltip';
+                    tooltip.textContent = game.text;
+
+                    imageContainer.appendChild(img);
+                    imageContainer.appendChild(tooltip);
+                    gameButton.appendChild(imageContainer);
+                    container.appendChild(gameButton);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
